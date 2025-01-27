@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+body{
+  background-color: #eee;
+}
+
+.navbar{
+  padding: 16px 40px;
+}
+
+li{
+  padding-left: 1.2rem;
+}
+
+.btn{
+  padding: 10px 24px;
+  color: white;
+  font-weight: bold;
+  background-color: #4772BA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+input{
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  outline: 0;
+}
+
+table{
+  /* border: 1px solid #bbb; */
+  margin: 28px 16px;
+  padding: 18px;
+  width: 100%;
+}
+th{
+  padding: 10px;
+}
+td{
+  border: 1px solid #bbb;
+  text-align: center;
+  padding: 12px;
+  font-weight: 700;
+}
