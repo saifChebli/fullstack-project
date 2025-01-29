@@ -3,7 +3,7 @@ import Jobs from '../jobsmodel/Job.js'
 
 export const getJobs = async(req,res) => {
     try {
-        const jobs = await Jobs.find({user : req.user.id})
+        const jobs = await Jobs.find()
         res.status(200).json(jobs)
     } catch (error) {
         console.log(error)
@@ -24,7 +24,7 @@ export const getAllJobs = async(req,res) => {
 export const setJobs = async (req, res) => {
     const {title ,description ,job_category ,salary_to ,salary_from} = req.body
     try {
-        const Job = new Jobs({user : req.user.id ,title ,description ,job_category ,salary_to ,salary_from })
+        const Job = new Jobs({title ,description ,job_category ,salary_to ,salary_from })
         await Job.save()
      res.status(201).json({message : 'Job Created' , Job});
   } catch (error) {

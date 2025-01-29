@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 
 export const signUp = async (req, res) => {
     const { fullName, email, password } = req.body
+    console.log(fullName)
     try {
         const existUser = await User.findOne({ email })
         if (existUser) {
@@ -25,13 +26,14 @@ export const signUp = async (req, res) => {
         const newUser = new User({ fullName, email, password: hashedPassword })
         await newUser.save()
 
-        res.status(201).json({
+       return res.status(201).json({
             id : newUser._id,
             email :newUser.email,
             fullName : newUser.fullName,
             token : GenerateToken(newUser._id)
         })
     } catch (error) {
+        console.log(error)
         return res.status(500).json({ message: "Internal Server Error" });
     }
 }

@@ -1,5 +1,5 @@
 import React , {useEffect , useState} from 'react'
-import { FaPlus } from 'react-icons/fa'
+import { FaPlus , FaTrash , FaEdit} from 'react-icons/fa'
 import axios from 'axios'
 import avatar from '../assets/avatar.png'
 
@@ -40,15 +40,24 @@ const UserList = () => {
               <td>Photo</td>
               <td>Name</td>
               <td>E-mail</td> 
+              <td>Action</td>
           </thead>
           <tbody>
           {
             users.map(user=>{
               return (
                 <tr key={user._id} className='p-16'>
-                      <td className='flex justify-center items-center'><img src={avatar} alt="user image" width={80} /></td>
+                      <td className='flex justify-center items-center'>
+                        <img src={avatar} alt="user image" width={80} />
+                        </td>
                       <td>{user.fullName}</td>
                       <td>{user.email}</td>
+                      <td>
+                        <button><FaTrash /></button>
+                        <button>
+                          <FaEdit />
+                        </button>
+                        </td>
                 </tr>
               )
             })
